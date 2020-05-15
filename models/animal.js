@@ -36,20 +36,17 @@ module.exports = function(sequelize, DataTypes) {
     weight: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    indoorOutdoor: {
-      type: DataTypes.ENUM(["Indoors", "Outdoors", "Both"]),
-      allowNull: false
     }
   });
 
   Animal.associate = function(models) {
     // We're saying that a Post should belong to an User
     // A Post can't be created without an User due to the foreign key constraint
-    Animal.hasMany(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+    Animal.belongsToMany(models.User, {
+      through: "AnimalUsers"
+    });
+    models.Animal.belongsToMany(models.IsGoodWith, {
+      through: "AnimalsGoodWith"
     });
   };
 
