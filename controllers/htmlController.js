@@ -52,6 +52,34 @@ router.get("/forum", isAuthenticated, function(req, res) {
     })
     .catch(err => res.status(422).json(err));
 });
+/**
+ * All Animals
+ */
+router.get("/allAnimals", function(req, res) {
+  res.render("allAnimals", { user: req.user });
+});
+
+/**
+ * Cats
+ */
+router.get("/cats", function(req, res) {
+  res.render("cats", { user: req.user });
+});
+
+/**
+ * Dogs
+ */
+router.get("/dogs", function(req, res) {
+  res.render("dogs", { user: req.user });
+});
+
+/**
+ * Misc
+ */
+router.get("/misc", function(req, res) {
+  res.render("misc", { user: req.user });
+});
+
 
 /**
  * Generic Error Page
@@ -59,5 +87,6 @@ router.get("/forum", isAuthenticated, function(req, res) {
 router.get("*", function(req, res) {
   res.render("errors/404", { user: req.user });
 });
+
 
 module.exports = router;
