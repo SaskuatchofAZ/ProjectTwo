@@ -61,8 +61,8 @@ router.delete("/api/cats/:id", function (req, res) {
         }
 
     }).then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
 });
 
 module.exports = router;
