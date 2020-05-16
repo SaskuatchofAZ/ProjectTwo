@@ -33,7 +33,8 @@ module.exports = function(sequelize, DataTypes) {
       },
       // isEmployee is used to determine whether or not editing rights are given.
       isEmployee: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       }
     },
     {

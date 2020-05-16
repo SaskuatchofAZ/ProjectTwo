@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     age: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false
     },
     breed: {
