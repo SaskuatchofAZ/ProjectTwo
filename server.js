@@ -48,12 +48,28 @@ if (process.env.NODE_ENV === "test") {
 // if we need it! {force:true}
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync(config).then(function() {
+  db.IsGoodWith.findAll().then(dataBack => {
+    dogCheck = dataBack.find(object => object.title === "Dogs");
+    if (!dogCheck) {
+      db.IsGoodWith.create({ title: "Dogs" });
+    }
+    catCheck = dataBack.find(object => object.title === "Cats");
+    if (!catCheck) {
+      db.IsGoodWith.create({ title: "Cats" });
+    }
+    kidCheck = dataBack.find(object => object.title === "Kids");
+    if (!kidCheck) {
+      db.IsGoodWith.create({ title: "Kids" });
+    }
+  });
   if (process.env.NODE_ENV === "test") {
-    db.User.create({ email: "test@test.com", password: "password" }).then(
-      () => {
-        console.log("Test User Created");
-      }
-    );
+    db.User.create({
+      email: "test@test.com",
+      password: "password",
+      username: "Test"
+    }).then(() => {
+      console.log("Test User Created");
+    });
   }
   app.listen(PORT, function() {
     console.log(
