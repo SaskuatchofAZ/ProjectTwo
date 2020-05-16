@@ -56,7 +56,10 @@ router.get("/forum", isAuthenticated, function(req, res) {
  * All Animals
  */
 router.get("/allAnimals", function(req, res) {
-  res.render("allAnimals", { user: req.user });
+  db.Animal.findAll({ raw: true, include: [db.User] }).then(dbModel => {
+    console.log(dbModel);
+    res.render("allAnimals", { user: req.user, animal: dbModel });
+  });
 });
 
 /**
@@ -80,13 +83,11 @@ router.get("/misc", function(req, res) {
   res.render("misc", { user: req.user });
 });
 
-
 /**
  * Generic Error Page
  */
 router.get("*", function(req, res) {
   res.render("errors/404", { user: req.user });
 });
-
 
 module.exports = router;

@@ -4,7 +4,7 @@ const router = require("express").Router();
 /**
  * User - All Animals
  */
-router.get("/api/allAnimals", function(req, res) {
+router.get("/", function(req, res) {
   db.Animal.findAll(req.query)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
@@ -13,7 +13,7 @@ router.get("/api/allAnimals", function(req, res) {
 /**
  * User Read - One Animal
  */
-router.get("/api/allAnimals/:id", function(req, res) {
+router.get("/:id", function(req, res) {
   db.Animal.findById(req.params.id)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
@@ -22,7 +22,7 @@ router.get("/api/allAnimals/:id", function(req, res) {
 /**
  * User - Create an Animal
  */
-router.post("/api/allAnimals", function(req, res) {
+router.post("/", function(req, res) {
   db.Animal.create(req.body)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
@@ -31,7 +31,7 @@ router.post("/api/allAnimals", function(req, res) {
 /**
  * User - Update an Animal
  */
-router.put("/api/allAnimals/:id", function(req, res) {
+router.put("/:id", function(req, res) {
   db.Animal.findOneAndUpdate({ _id: req.params.id }, req.body)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
@@ -40,7 +40,7 @@ router.put("/api/allAnimals/:id", function(req, res) {
 /**
  * User - Delete an Animal
  */
-router.delete("/api/allAnimals/:id", function(req, res) {
+router.delete("/:id", function(req, res) {
   db.Animal.findById({ _id: req.params.id })
     .then(dbModel => dbModel.remove())
     .then(dbModel => res.json(dbModel))
