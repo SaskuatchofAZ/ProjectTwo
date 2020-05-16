@@ -19,6 +19,21 @@ module.exports = function(sequelize, DataTypes) {
       password: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      // Username is a unique string the cannot be null.
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      //Bio is a text block that can be null.
+      bio: {
+        type: DataTypes.TEXT,
+        allowNull: true
+      },
+      // isEmployee is used to determine whether or not editing rights are given.
+      isEmployee: {
+        type: DataTypes.BOOLEAN
       }
     },
     {
@@ -53,8 +68,8 @@ module.exports = function(sequelize, DataTypes) {
   User.associate = function(models) {
     // Associating User with Posts
     // When an User is deleted, also delete any associated Posts
-    User.hasMany(models.Post, {
-      onDelete: "cascade"
+    User.belongsToMany(models.Animal, {
+      through: "AnimalUsers"
     });
   };
 
