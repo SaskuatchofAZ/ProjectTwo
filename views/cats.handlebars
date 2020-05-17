@@ -5,5 +5,37 @@
             <div class="jumbotron">
                 <h1 class="display-6">Cats</h1>
             </div>
-        </div>      
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Picture</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Breed</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                             {{#each animal}}
+                            <th scope="row">{{id}}</th>
+                            <td class="w-25">
+                                <a href="{{picture}}"></a>
+                            <td>{{name}}</td>
+                            <td>{{breed}}</td>
+                            <td>{{age}}</td>
+                            <td>{{weight}}</td>
+                             {{/each}}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
