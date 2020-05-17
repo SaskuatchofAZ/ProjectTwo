@@ -81,7 +81,14 @@ router.get("/cats", function(req, res) {
  * Dogs
  */
 router.get("/dogs", function(req, res) {
-  res.render("dogs", { user: req.user });
+  db.Animal.findAll({
+    raw: true,
+    where: {
+      species: "dog"
+    }
+  }).then(dbModel => {
+    res.render("dogs", { animal: dbModel });
+  });
 });
 
 /**
