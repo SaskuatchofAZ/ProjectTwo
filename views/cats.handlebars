@@ -11,10 +11,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <table class="table table-image">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">id</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Name</th>
                             <th scope="col">Breed</th>
@@ -23,17 +22,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                             {{#each animal}}
-                            <th scope="row">{{id}}</th>
-                            <td class="w-25">
-                                <a href="{{picture}}"></a>
+                        {{#each animal}}
+                        <tr class="table">
+                            <td>
+                                <div class="card" style="width: 18rem;">
+                                    <a href="{{picture}}" class="w-25"></a>
+                                    <img src="https://tse4.mm.bing.net/th?id=OIP.IadWjX7Z2rp2w7Td5k-LAwHaFA&pid=Api&P=0&w=268&h=182"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">{{bio}}</p>
+                                    </div>
+                                </div>
+                            </td>
                             <td>{{name}}</td>
                             <td>{{breed}}</td>
-                            <td>{{age}}</td>
-                            <td>{{weight}}</td>
-                             {{/each}}
+                            <td>{{age}} years old</td>
+                            <td>{{weight}} lbs.</td>
                         </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
