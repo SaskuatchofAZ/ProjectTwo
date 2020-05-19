@@ -95,7 +95,15 @@ router.get("/dogs", function(req, res) {
  * Misc
  */
 router.get("/misc", function(req, res) {
-  res.render("misc", { user: req.user });
+  const { Op } = require("sequelize");
+  db.Animal.findAll({
+    raw: true,
+    where: {
+      species: { [Op.not]: ["cat", "dog"] }
+    }
+  }).then(dbModel => {
+    res.render("misc", { animal: dbModel });
+  });
 });
 
 /**
