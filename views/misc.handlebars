@@ -1,5 +1,53 @@
 {{> navbar user }}
 <div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="jumbotron">
+                <h1 class="display-6">Miscellaneous</h1>
+            </div>
+        </div>      
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Picture</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Species</th>
+                            <th scope="col">Breed</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each animal}}
+                        <tr class="table">
+                            <td>
+                                <div class="card" style="width: 18rem;">
+                                    <a href="{{picture}}" class="w-25"></a>
+                                    <img src="https://i.pinimg.com/originals/9d/5f/3c/9d5f3cbf7099f2e48c30af8d21091bfc.jpg"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">{{bio}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{name}}</td>
+                            <td>{{species}}</td>
+                            <td>{{breed}}</td>
+                            <td>{{age}} years old</td>
+                            <td>{{weight}} lbs.</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+=======
     <div class="jumbotron"
         style="background-image: url(http://s3.serverdata.com/www.garysdoggrooming.com/files/sub-headers/faq-windows-header.jpg);">
 

@@ -58,7 +58,7 @@ router.get("/forum", isAuthenticated, function(req, res) {
  */
 router.get("/allAnimals", function(req, res) {
   db.Animal.findAll({ raw: true, include: [db.User] }).then(dbModel => {
-    console.log(dbModel);
+    // console.log(dbModel);
     res.render("allAnimals", { user: req.user, animal: dbModel });
   });
 });
@@ -67,21 +67,44 @@ router.get("/allAnimals", function(req, res) {
  * Cats
  */
 router.get("/cats", function(req, res) {
-  res.render("cats", { user: req.user });
+  db.Animal.findAll({
+    raw: true,
+    where: {
+      species: "cat"
+    }
+  }).then(dbModel => {
+    console.log(dbModel);
+    res.render("cats", { animal: dbModel });
+  });
 });
 
 /**
  * Dogs
  */
 router.get("/dogs", function(req, res) {
-  res.render("dogs", { user: req.user });
+  db.Animal.findAll({
+    raw: true,
+    where: {
+      species: "dog"
+    }
+  }).then(dbModel => {
+    res.render("dogs", { animal: dbModel });
+  });
 });
 
 /**
  * Misc
  */
 router.get("/misc", function(req, res) {
-  res.render("misc", { user: req.user });
+  const { Op } = require("sequelize");
+  db.Animal.findAll({
+    raw: true,
+    where: {
+      species: { [Op.not]: ["cat", "dog"] }
+    }
+  }).then(dbModel => {
+    res.render("misc", { animal: dbModel });
+  });
 });
 /**
  * one animal page
