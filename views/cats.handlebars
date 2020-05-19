@@ -1,9 +1,38 @@
 {{> navbar user }}
 <div class="container">
-    <div class="row">
-        <div class="col-md">
-            <div class="jumbotron">
-                <h1 class="display-6">Cats</h1>
-            </div>
-        </div>      
+    <div class="jumbotron"
+        style="background-image: url(http://s3.serverdata.com/www.garysdoggrooming.com/files/sub-headers/faq-windows-header.jpg);">
+
+        <h1 class="jumbotronTitle">Cats</h1>
     </div>
+</div>
+
+
+<div class="container">
+    <div class="allAnimalTable">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Species</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each animal}}
+                <tr class="table-active">
+
+                    <th scope="row"><a href="/allAnimals/{{id}}">{{name}}</a></th>
+                    <td>{{picture}}</td>
+                    <td>{{species}}</td>
+                    <td>{{age}} years old</td>
+                    <td>{{weight}} lbs.</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
