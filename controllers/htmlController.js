@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const db = require("../models");
 
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -103,6 +104,17 @@ router.get("/misc", function(req, res) {
     }
   }).then(dbModel => {
     res.render("misc", { animal: dbModel });
+  });
+});
+/**
+ * one animal page
+ */
+router.get("/allAnimals/:id", function(req, res) {
+  db.Animal.findOne({
+    where: { id: req.params.id }
+  }).then(dbModel => {
+    console.log(dbModel.dataValues);
+    res.render("oneAnimalPage", { animal: dbModel.dataValues });
   });
 });
 
