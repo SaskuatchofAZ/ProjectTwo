@@ -64,6 +64,17 @@ router.get("/allAnimals", function(req, res) {
 });
 
 /**
+ * Submission page
+ */
+router.get("/submit", isAuthenticated, function(req, res) {
+  if (req.user.isEmployee) {
+    res.render("animalSubmit", { user: req.user });
+  } else {
+    res.redirect("/");
+  }
+});
+
+/**
  * Cats
  */
 router.get("/cats", function(req, res) {

@@ -26,14 +26,27 @@
         <label for="animalBreed">Animal Breed</label>
         <input type="text" class="form-control" id="animalBreed" placeholder="e.g Chow Chow, Calico, Terrier Mix">
       </div>
-      <div class="form-group">
-        <label for="isGoodWith">This animal gets along with:</label>
-        <select multiple="" class="form-control" id="isGoodWith">
-          <option>Dogs</option>
-          <option>Cats</option>
-          <option>Kids</option>
-        </select>
-      </div>
+      <fieldset class="form-group">
+        <legend>Who is the animal good with?</legend>
+        <div class="form-check" id="isGoodWith">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="1" checked="">
+            Dogs
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="2" disabled="">
+            Cats
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="3" disabled="">
+            Kids
+          </label>
+        </div>
+      </fieldset>
       <div class="form-group">
         <label for="animalBio">A short Bio for the animal</label>
         <textarea class="form-control" id="animalBio" rows="3"></textarea>
@@ -58,7 +71,8 @@
       species: $("#animalSpeciesSelect").val(),
       bio: $("#animalBio").val().trim(),
       picture: $("#animalPicture").val().trim(),
-      breed: $("#animalBreed").val().trim()
+      breed: $("#animalBreed").val().trim(),
+      isGoodWith: $("#isGoodWith").val()
     };
     console.log(animal);
     $.post("/api/allAnimals", animal)

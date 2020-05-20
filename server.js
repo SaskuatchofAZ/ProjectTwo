@@ -62,16 +62,22 @@ db.sequelize.sync(config).then(function() {
       db.IsGoodWith.create({ title: "Kids" });
     }
   });
-  if (process.env.NODE_ENV === "test") {
-    db.User.create({
-      email: "test@test.com",
-      password: "password",
-      username: "Test",
-      isEmployee: true
-    }).then(() => {
-      console.log("Test User Created");
-    });
-  }
+  db.User.findOne({
+    where: {
+      username: "Admin"
+    }
+  }).then(dbModel => {
+    if (!dbModel) {
+      db.User.create({
+        email: process.env.ADMIN_E || "test@test.com",
+        password: process.env.ADMIN_PW || "password",
+        username: "Admin",
+        isEmployee: true
+      }).then(() => {
+        console.log("Admin account created!");
+      });
+    }
+  });
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
