@@ -80,6 +80,18 @@ margin-right: auto;
    font-family: 'Yanone Kaffeesatz', sans-serif;
    font-size: 1.3em;
  }
+
+ .modal-title {
+   font-size: 1.8em;
+   font-family: 'Roboto Slab', serif;
+   text-align: center;
+ }
+
+ .modalBody {
+   font-size: 1.3em;
+   font-family: 'Roboto Slab', serif;
+   text-align: center;
+ }
 /* font-family: 'Oswald', sans-serif;
 font-family: 'Roboto Slab', serif;
 font-family: 'Yanone Kaffeesatz', sans-serif; */

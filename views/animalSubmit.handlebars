@@ -1,3 +1,13 @@
+{{> navbar user }}
+
+<div class="container">
+  <div class="jumbotron"
+    style="background-image: url(http://s3.serverdata.com/www.garysdoggrooming.com/files/sub-headers/faq-windows-header.jpg);">
+
+    <h1 class="jumbotronTitle">Add New Animal</h1>
+  </div>
+</div>
+
 <div class="container">
   <form>
     <fieldset>
@@ -54,11 +64,38 @@
       <div class="form-group">
         <label for="animalPicture">Animal Picture URL</label>
         <input type="text" class="form-control" id="animalPicture" placeholder="e.g. https://imgur.com/a/ZrKgDUt">
-        <small id="fileHelp" class="form-text text-muted">Please upload image to a third-party such as imgur.com</small>
+        <small id="fileHelp" class="form-text text-muted">
+          <a href="https://imgur.com/upload?beta">Please upload image to a third-party such as imgur.com </a>
+        </small>
       </div>
       <button type="button" class="btn btn-primary" id="submit">Submit</button>
     </fieldset>
   </form>
+</div>
+
+<br>
+<br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addedAnimalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Shelter Helper</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modalBody">
+        You added an Animal!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -77,7 +114,7 @@
     console.log(animal);
     $.post("/api/allAnimals", animal)
       .then(res => {
-        alert("Animal successfully posted");
+        $('#addedAnimalModal').modal()
         console.log(res)
       })
       .catch(function (err) {
