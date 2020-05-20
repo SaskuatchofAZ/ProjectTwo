@@ -18,6 +18,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/auth/logout">Logout</a>
             </li>
+            <ul class="nav nav-pills flex-column">
+                <li class="animalsDroppedDown dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">Animal Type</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" href="/allAnimals">All Animals</a>
+                        <a class="dropdown-item" href="/cats">Cats</a>
+                        <a class="dropdown-item" href="/dogs">Dogs</a>
+                        <a class="dropdown-item" href="/misc">Miscellaneous</a>
+                        <a class="dropdown-item" href="/submit">Submit an animal</a>
+                    </div>
+                </li>
+            </ul>
             {{else}}
             <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
