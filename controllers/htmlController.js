@@ -42,6 +42,17 @@ router.get("/login", function(req, res) {
 });
 
 /**
+ * Login page
+ */
+router.get("/animalSubmit", function(req, res) {
+  if (req.user) {
+    res.redirect("/");
+  } else {
+    res.render("animalSubmit", { user: req.user });
+  }
+});
+
+/**
  * Forum Page -
  * Notice loading our posts, with that include!
  */
