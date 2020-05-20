@@ -66,7 +66,8 @@ db.sequelize.sync(config).then(function() {
     db.User.create({
       email: "test@test.com",
       password: "password",
-      username: "Test"
+      username: "Test",
+      isEmployee: true
     }).then(() => {
       console.log("Test User Created");
     });
