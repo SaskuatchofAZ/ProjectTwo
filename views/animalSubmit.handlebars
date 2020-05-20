@@ -28,7 +28,7 @@
       </div>
       <fieldset class="form-group">
         <legend>Who is the animal good with?</legend>
-        <div class="form-check">
+        <div class="form-check" id="isGoodWith">
           <label class="form-check-label">
             <input class="form-check-input" type="checkbox" value="1" checked="">
             Dogs
@@ -71,7 +71,8 @@
       species: $("#animalSpeciesSelect").val(),
       bio: $("#animalBio").val().trim(),
       picture: $("#animalPicture").val().trim(),
-      breed: $("#animalBreed").val().trim()
+      breed: $("#animalBreed").val().trim(),
+      isGoodWith: $("#isGoodWith").val()
     };
     console.log(animal);
     $.post("/api/allAnimals", animal)

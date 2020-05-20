@@ -65,8 +65,12 @@ router.get("/allAnimals", function(req, res) {
 /**
  * Submission page
  */
-router.get("/submit", function(req, res) {
-  res.render("animalSubmit", { user: req.user });
+router.get("/submit", isAuthenticated, function(req, res) {
+  if (req.user.isEmployee) {
+    res.render("animalSubmit", { user: req.user });
+  } else {
+    res.redirect("/");
+  }
 });
 
 /**
