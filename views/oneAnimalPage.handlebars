@@ -17,7 +17,7 @@
             <div class="informationBox mb-3">
                 <div class="card-header">Other Information</div>
                 <div class="card-body">
-                    <p class="card-text" id="date"></p>Date into shelter: {{animal.createdAt}}</p>
+                    <p class="card-text" id="date"></p>Date into shelter: {{date}}</p>
                     <p class="card-text">{{animal.age}} years old</p>
                     <p class="card-text">{{animal.weight}} lbs</p>
                     <p class="card-text">{{animal.name}}'s bio: {{animal.bio}}</p>
@@ -28,11 +28,6 @@
     </div>
 </div>
 
-<script>
-    var date = moment().format('L'); 
-    console.log(date);
-    $("#date").text(date); 
-</script>
 
 
 

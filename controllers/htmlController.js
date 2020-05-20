@@ -114,7 +114,8 @@ router.get("/allAnimals/:id", function(req, res) {
     where: { id: req.params.id }
   }).then(dbModel => {
     console.log(dbModel.dataValues);
-    res.render("oneAnimalPage", { animal: dbModel.dataValues });
+    let date = dbModel.get("createdAt").toLocaleDateString("en-US");
+    res.render("oneAnimalPage", { animal: dbModel.dataValues, date: date });
   });
 });
 
