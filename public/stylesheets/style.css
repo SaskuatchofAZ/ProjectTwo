@@ -10,10 +10,22 @@ form.login {
 .forum-post {
   width: 100%;
 }
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
 
 footer {
   text-align: center;
   background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .container {
@@ -92,9 +104,34 @@ margin-right: auto;
    font-family: 'Roboto Slab', serif;
    text-align: center;
  }
+
+ #successStoryHeader {
+  text-align: center;
+  font-family: 'Caladea', serif;
+  font-size: 1.5em
+ }
+
+ #successBodyText {
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1em;
+ }
+
+ .typeOfAnimalFilter {
+   text-align: center;
+   font-family: 'Caladea', serif;
+   font-size: 1.3em;
+
+ }
+
 /* font-family: 'Oswald', sans-serif;
 font-family: 'Roboto Slab', serif;
-font-family: 'Yanone Kaffeesatz', sans-serif; */
+font-family: 'Yanone Kaffeesatz', sans-serif; 
+font-family: 'Acme', sans-serif;
+font-family: 'Caladea', serif;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Mukta', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;*/
 
 @media screen and (min-width: 750px) {
   .logo {

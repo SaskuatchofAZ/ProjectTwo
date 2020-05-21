@@ -4,30 +4,36 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-{{!-- Google Fonts --}}
-	<link href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-	
+	{{!-- Google Fonts --}}
+	<link
+		href="https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Slab&family=Yanone+Kaffeesatz&display=swap&family=Acme&family=Caladea&family=Fjalla+One&family=Mukta&family=Source+Sans+Pro&display=swap"
+		rel="stylesheet">
+
 	{{!-- Bootswatch stylesheet --}}
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/journal/bootstrap.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
 
-
 	<title>Shelter Helper</title>
 </head>
 
 <body>
-	{{{ body }}}
-	<footer class="fixed-bottom">
-		<h5 class="text-white">Helping Shelter Animals since 2020.</h5>
-	</footer>
+	<div id="page-container">
+		<div id="content-wrap">
+			{{{ body }}}
+
+			<footer class="footer">
+				<h5 class="bg-info text-white">Helping Shelter Animals since 2020.</h5>
+			</footer>
+		</div>
+	</div>
 </body>
 
 </html>
