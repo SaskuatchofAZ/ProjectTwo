@@ -74,25 +74,45 @@ footer {
 .allAnimalTable{
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 1.5em;
+  text-align: center;
+ 
 }
 
  #animalImage {
    display: inline-block;
    max-width:60%;
    height: auto;
+   margin-left: auto;
+margin-right: auto;
  }
 #animalImgCol {
 margin-left: auto;
 margin-right: auto;
+text-align: center;
+}
+
+.infoBoxCol {
+  text-align: center;
 }
  .informationBox {
-   display: inline-block;
-   max-width: 90%;
+   max-width: 40em;
    height: auto;
    font-family: 'Yanone Kaffeesatz', sans-serif;
    font-size: 1.3em;
+   text-align: center;
  }
-
+.animalChoiceButton{
+  align-content: center;
+  margin: 5em;
+}
+#animalChoice {
+  margin: 0.5em;
+}
+#homeAnimalChoice{
+  align-content: center;
+  text-align: center;
+  
+}
  .modal-title {
    font-size: 1.8em;
    font-family: 'Roboto Slab', serif;
