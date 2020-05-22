@@ -23,9 +23,21 @@ router.get("/:id", function(req, res) {
  * User - Create an Animal
  */
 router.post("/", function(req, res) {
+  console.log(req.body);
   db.Animal.create(req.body)
     .then(dbModel => {
-      res.json(dbModel);
+      // const animalId = dbModel.id;
+      db.IsGoodWith.findAll({
+        where: {
+          id: {
+            [Op.in]: req.body.isGoodWith
+          }
+        }
+      }).then(isGoodWiths => {
+        dbModel.addIsGoodWiths(isGoodWiths).then(() => {
+          res.json(dbModel);
+        });
+      });
     })
     .catch(err => res.status(422).json(err));
 });
@@ -34,7 +46,7 @@ router.post("/", function(req, res) {
  * User - Update an Animal
  */
 router.put("/:id", function(req, res) {
-  db.Animal.update(req.body, { where: { id: req.params.id }})
+  db.Animal.update(req.body, { where: { id: req.params.id } })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
