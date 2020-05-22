@@ -1,32 +1,29 @@
 {{> navbar user}}
-<div class="jumbotron"
-    style="background-image: url(http://s3.serverdata.com/www.garysdoggrooming.com/files/sub-headers/faq-windows-header.jpg);">
 
-    <h1 class="jumbotronTitle">Forum</h1>
-</div>
+<div class="container">
+    <div class="jumbotron"
+        style="background-image: url(http://s3.serverdata.com/www.garysdoggrooming.com/files/sub-headers/faq-windows-header.jpg);">
+
+        <h1 class="jumbotronTitle">Forum</h1>
+    </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md">
-            <div class="jumbotron">
-                <h4 class="display-6">Hello, {{user.email}}!</h4>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md">
             <legend>Forum Posts</legend>
             <div id="forum-posts">
-            {{#each posts}}
-            <div class="forum-post-card card text-white bg-primary mb-3">
-                <div class="card-header"><h4 class="text-white">{{title}}</h4></div>
-                <div class="card-body">
-                    <p class="card-text">{{body}}</p>
-                    by {{'User.email'}}
-                    @ {{createdAt}}
+                {{#each posts}}
+                <div class="forum-post-card card text-white bg-primary mb-3">
+                    <div class="card-header">
+                        <h4 class="text-white">{{title}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{body}}</p>
+                        by {{'User.email'}}
+                        @ {{createdAt}}
+                    </div>
                 </div>
-            </div>
-            {{/each}}
+                {{/each}}
             </div>
         </div>
 
@@ -39,7 +36,8 @@
                 <fieldset>
                     <legend>Create Your Own Post</legend>
                     <p>
-                        Type in your post title and body below, and click submit to send it to our database. We will register it with your email address, and display it above with everyone else's posts!</p>
+                        Type in your post title and body below, and click submit to send it to our database. We will
+                        register it with your email address, and display it above with everyone else's posts!</p>
                     </p>
                     <div class="form-group">
                         <label for="title-input">Title</label>
