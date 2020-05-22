@@ -1,6 +1,6 @@
 const db = require("../../models");
 const router = require("express").Router();
-
+const { Op } = require("sequelize");
 /**
  * User - All Animals
  */
@@ -24,7 +24,9 @@ router.get("/:id", function(req, res) {
  */
 router.post("/", function(req, res) {
   db.Animal.create(req.body)
-    .then(dbModel => res.json(dbModel))
+    .then(dbModel => {
+      res.json(dbModel);
+    })
     .catch(err => res.status(422).json(err));
 });
 
@@ -32,17 +34,16 @@ router.post("/", function(req, res) {
  * User - Update an Animal
  */
 router.put("/:id", function(req, res) {
-  db.Animal.findOneAndUpdate({ _id: req.params.id }, req.body)
+  db.Animal.update(req.body, { where: { id: req.params.id }})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });
 
-/**
- * User - Delete an Animal
+/** 
+ * User - Delete
  */
 router.delete("/:id", function(req, res) {
-  db.Animal.findById({ _id: req.params.id })
-    .then(dbModel => dbModel.remove())
+  db.Animal.destroy({ where: { id: req.params.id } })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 });

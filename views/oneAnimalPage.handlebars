@@ -10,8 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col" id="animalImgCol">
-            <img src="{{animal.picture}}"
-                id="animalImage">
+            <img src="{{animal.picture}}" id="animalImage">
         </div>
         <div class="col">
             <div class="informationBox mb-3">
@@ -21,6 +20,9 @@
                     <p class="card-text">{{animal.age}} years old</p>
                     <p class="card-text">{{animal.weight}} lbs</p>
                     <p class="card-text">{{animal.name}}'s bio: {{animal.bio}}</p>
+                    {{#if user.isEmployee}}
+                    <button id="delete" data-id="{{animal.id}}">Remove Animal from Database</button>
+                    {{/if}}
                     {{!-- add other information --}}
                 </div>
             </div>
@@ -29,7 +31,20 @@
 </div>
 
 
+<script>
+    $("#delete").on("click", function (event) {
+        event.preventDefault();
+        $.ajax({
+            method: "DELETE",
+            url: `/api/allAnimals/${$("#delete").attr("data-id")}`
+        }).then(response => {
+            window.location.href = "/allAnimals";
+            return false;
+        });
 
+
+    })
+</script>
 
 
 {{!-- add updates from employee --}}
