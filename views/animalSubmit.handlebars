@@ -120,7 +120,7 @@
     event.preventDefault();
     const animal = {
       name: $("#animalName").val().trim(),
-      age: parseInt($("#animalAge").val()),
+      age: parseFloat($("#animalAge").val()),
       weight: parseInt($("#animalWeight").val()),
       species: $("#animalSpeciesSelect").val(),
       bio: $("#animalBio").val().trim(),
