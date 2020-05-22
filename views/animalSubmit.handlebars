@@ -118,6 +118,8 @@
 
   $("#submit").on("click", event => {
     event.preventDefault();
+    isGoodWith = [];
+    isGoodWith.push($("#isGoodWith1").val(), $("#isGoodWith2").val(), $("#isGoodWith3").val())
     const animal = {
       name: $("#animalName").val().trim(),
       age: parseInt($("#animalAge").val()),
@@ -126,7 +128,7 @@
       bio: $("#animalBio").val().trim(),
       picture: picture,
       breed: $("#animalBreed").val().trim(),
-      isGoodWith: $("#isGoodWith").val()
+      isGoodWith: isGoodWith
     };
     console.log(animal);
     $.post("/api/allAnimals", animal)
