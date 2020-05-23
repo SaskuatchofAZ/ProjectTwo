@@ -134,7 +134,6 @@
     $.post("/api/allAnimals", animal)
       .then(res => {
         $('#addedAnimalModal').modal();
-        window.location.replace("/allAnimals")
         console.log(res)
       })
       .catch(function (err) {
