@@ -10,7 +10,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-4">
             <div class="card text-white bg-info border-info mb-3">
                 <h3 class="card-header" id="successStoryHeader">Foster Success Story</h3>
                 <div class="bg-light border-transparent">
@@ -24,14 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="typeOfAnimalFilter"> Which type of animal would you like to view? </div>
-            <ul>
-                <button type="animalChoice" class="btn btn-outline-info"><a href="/allAnimals">All Animals</a></button>
-                <button type="animalChoice" class="btn btn-outline-info"><a href="/dogs">Dogs</a></button>
-                <button type="animalChoice" class="btn btn-outline-info"><a href="/cats">Cats</a></button>
-                <button type="animalChoice" class="btn btn-outline-info"><a href="/misc">Miscellaneous</a></button>
-            </ul>
+        <div class="col-5">
             <div class="card text-white bg-info border-info mb-3">
                 <h3 class="card-header" id="successStoryHeader">Animal of the Day</h3>
                 <div class="bg-light border-transparent">
@@ -40,6 +33,22 @@
                 </div>
                 <div class="card-body bg-light ;" id="successBodyText">
                     <p class="card-text">Granger was surrendered by their owner. He loves to play with other cats, and loves attention. Bring Granger home today.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card text-white bg-info border-info mb-3" id="homeAnimalChoice">
+                <h3 class="card-header" id="successStoryHeader">Which Animal would you like to view?</h3>
+                <div class="card-body bg-light ;" id="animalChoiceButton">
+                    
+                <button type="animalChoice" class="btn btn-outline-info" id="animalChoice"><a href="/allAnimals">All Animals</a></button>
+                <br>
+                <button type="animalChoice" class="btn btn-outline-info" id="animalChoice"><a href="/dogs">Dogs</a></button>
+                <br>
+                <button type="animalChoice" class="btn btn-outline-info" id="animalChoice"><a href="/cats">Cats</a></button>
+                <br>
+                <button type="animalChoice" class="btn btn-outline-info id="animalChoice""><a href="/misc">Miscellaneous</a></button>
+         
                 </div>
             </div>
         </div>
